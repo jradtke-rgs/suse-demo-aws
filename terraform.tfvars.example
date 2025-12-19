@@ -11,6 +11,10 @@
 #   terraform apply -var-file=../terraform.tfvars
 # =============================================================================
 
+# Update this var to indicate this file has been modified - else democtl will
+#   halt.  (future use)
+tf_updated = "false"
+
 # -----------------------------------------------------------------------------
 # Global Configuration
 # -----------------------------------------------------------------------------
