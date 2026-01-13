@@ -134,6 +134,8 @@ vi terraform.tfvars
 ```
 
 ### 2. Deploy Shared Services
+NOTE: You cannot cut-and-paste the entire stanza because the "apply" command requires input.
+  you can run:  echo "yes" | (command)
 
 ```bash
 cd shared-services
@@ -146,7 +148,7 @@ cd -
 ### 3. Deploy SUSE Rancher Manager
 
 ```bash
-cd ../rancher-manager
+cd rancher-manager
 tofu init
 tofu plan -var-file=../terraform.tfvars
 tofu apply -var-file=../terraform.tfvars
@@ -156,7 +158,7 @@ cd -
 ### 4. Deploy SUSE Observability
 
 ```bash
-cd ../observability
+cd observability
 tofu init
 tofu plan -var-file=../terraform.tfvars
 tofu apply -var-file=../terraform.tfvars
@@ -166,7 +168,7 @@ cd -
 ### 5. Deploy SUSE Security
 
 ```bash
-cd ../security
+cd security
 tofu init
 tofu plan -var-file=../terraform.tfvars
 tofu apply -var-file=../terraform.tfvars
