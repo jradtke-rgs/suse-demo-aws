@@ -74,6 +74,28 @@ Each module has its own `terraform.tfvars.example` file that should be copied to
 - User data scripts handle SUSE product installation and configuration
 - AMI selection uses latest SUSE Linux Enterprise Server images
 
+### Version Management
+All product and infrastructure component versions are managed through variables in `common-vars.tf` and configured via `terraform.tfvars`:
+
+**Available Version Variables:**
+- `rancher_version` - SUSE Rancher Manager version
+- `cert_manager_version` - Cert-manager version (used across all modules)
+- `neuvector_version` - NeuVector security platform version
+- `k3s_version` - K3s Kubernetes distribution version (applies to rancher-manager, observability, security modules)
+
+**K3s Version Control:**
+- **Default behavior**: Leave `k3s_version` empty or commented out to use latest stable K3s release
+- **Pinned version**: Set to specific version (e.g., `k3s_version = "v1.30.0+k3s1"`) to pin across all modules
+- Version format must match K3s release tags (e.g., `v1.30.0+k3s1`)
+- Find available versions at: https://github.com/k3s-io/k3s/releases
+- Implementation uses `INSTALL_K3S_VERSION` environment variable in user-data scripts
+- Changing K3s version on existing instances requires instance recreation (triggers user-data change)
+
+**Configuration Location:**
+- Variable definitions: `common-vars.tf` (lines 203-225)
+- Configuration: `terraform.tfvars` (unified config for all modules)
+- Example configuration: `terraform.tfvars.example` (lines 117-127)
+
 ### Network Architecture
 - Single VPC with public subnets only (no NAT Gateway for cost optimization)
 - All instances receive public IPs and are internet-accessible
