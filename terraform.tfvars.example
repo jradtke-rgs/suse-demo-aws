@@ -115,7 +115,8 @@ smt_url      = ""  # Optional: SMT/RMT server URL (leave empty to use SCC)
 # Rancher Manager Configuration
 # -----------------------------------------------------------------------------
 rancher_version      = "2.12.2"
-cert_manager_version = "1.15.3"
+#cert_manager_version = "1.15.3"
+cert_manager_version = "1.18.0"
 
 # -----------------------------------------------------------------------------
 # SUSE Observability (StackState) Configuration
