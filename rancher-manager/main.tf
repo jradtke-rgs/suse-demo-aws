@@ -229,6 +229,7 @@ resource "aws_instance" "rancher" {
   user_data = templatefile("${path.module}/user-data.sh", {
     rancher_version            = var.rancher_version
     cert_manager_version       = var.cert_manager_version
+    k3s_version                = var.k3s_version
     hostname                   = local.rancher_fqdn
     hostname_short             = var.hostname_rancher
     suse_email                 = var.suse_email

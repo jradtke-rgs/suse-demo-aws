@@ -84,6 +84,14 @@ echo "  Hostname: ${hostname}"
 echo "  Public IP: $PUBLIC_IP"
 echo "  Private IP: $PRIVATE_IP"
 
+# Set K3s version if specified, otherwise use latest stable
+if [ -n "${k3s_version}" ]; then
+  export INSTALL_K3S_VERSION="${k3s_version}"
+  echo "Installing K3s version: ${k3s_version}"
+else
+  echo "Installing latest stable K3s version"
+fi
+
 curl -sfL https://get.k3s.io | sh -s - server \
   --tls-san ${hostname} \
   --tls-san $PUBLIC_IP \
