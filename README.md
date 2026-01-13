@@ -130,7 +130,8 @@ mkdir -p ~/Developer/Projects; cd $_
 [ -d "suse-demo-aws" ] && { i=1; while [ -d "suse-demo-aws-$(date +%F)-$(printf '%02d' $i)" ]; do ((i++)); done; mv suse-demo-aws "suse-demo-aws-$(date +%F)-$(printf '%02d' $i)"; }
 git clone https://github.com/jradtke-suse/suse-demo-aws.git; cd suse-demo-aws
 cp ../terraform.tfvars.example terraform.tfvars 
-vi terraform.tfvars
+# Confirm the values have been updated
+egrep 'owner|ssh_public_key|rancher_instance_type|route53_zone_id|letsencrypt_email|suse_email|suse_regcode|suse_observability_license|suse_observability_admin_password|neuvector_version' terraform.tfvars 
 ```
 
 ### 2. Deploy Shared Services
