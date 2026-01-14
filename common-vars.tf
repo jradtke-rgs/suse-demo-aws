@@ -218,6 +218,12 @@ variable "neuvector_version" {
   default     = "5.4.6"
 }
 
+variable "k3s_version" {
+  description = "K3s version to install (e.g., v1.30.0+k3s1). Leave empty to use latest stable release."
+  type        = string
+  default     = ""
+}
+
 # SUSE Observability Configuration
 variable "suse_observability_license" {
   description = "SUSE Observability license key (required for observability module)"

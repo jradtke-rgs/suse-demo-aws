@@ -110,6 +110,7 @@ letsencrypt_environment = "production"  # Use "staging" for testing, "production
 suse_email   = "your-email@example.com"
 suse_regcode = "YOUR-REGISTRATION-CODE-HERE"
 smt_url      = ""  # Optional: SMT/RMT server URL (leave empty to use SCC)
+             # "https://rgscc.ranchergovernment.com"
 
 # -----------------------------------------------------------------------------
 # Rancher Manager Configuration
@@ -117,6 +118,14 @@ smt_url      = ""  # Optional: SMT/RMT server URL (leave empty to use SCC)
 rancher_version      = "2.12.2"
 #cert_manager_version = "1.15.3"
 cert_manager_version = "1.18.0"
+
+# K3s version (applies to all modules: rancher-manager, observability, security)
+# Leave commented to use latest stable K3s release
+# Uncomment and specify version to pin K3s version across all modules
+# k3s_version = "v1.30.0+k3s1"  # Example: pin to specific K3s version
+
+# To find available K3s versions:
+#   https://github.com/k3s-io/k3s/releases
 
 # -----------------------------------------------------------------------------
 # SUSE Observability (StackState) Configuration

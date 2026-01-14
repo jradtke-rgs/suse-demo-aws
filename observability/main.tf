@@ -242,6 +242,7 @@ resource "aws_instance" "observability" {
     suse_regcode                      = var.suse_regcode
     smt_url                           = var.smt_url
     cert_manager_version              = var.cert_manager_version
+    k3s_version                       = var.k3s_version
     hostname                          = var.hostname_observability
     hostname_short                    = var.hostname_observability
     subdomain                         = var.subdomain
